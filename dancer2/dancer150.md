@@ -55,7 +55,7 @@ Dancer2 core developer
 ## Route Merging
 
 ```perl
-package OurApp
+package OurApp;
 use Dancer2; # Default appname is the packages name
 
 get '/' => sub {'Hello'};
@@ -63,7 +63,7 @@ get '/' => sub {'Hello'};
 ```
 
 ```perl
-package OurApp::Admin
+package OurApp::Admin;
 use Dancer2 appname => 'OurApp';
 prefix => '/admin';
 
