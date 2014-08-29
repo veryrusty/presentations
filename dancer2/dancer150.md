@@ -26,7 +26,7 @@ Dancer2 core developer
   * Moo
 * No globals (ok, one remains)
 * Many apps at once
-* No concerned about adding dependencies
+* No issues with using dependencies from CPAN
   * But must be fat-packable.
 
 ---
@@ -56,7 +56,7 @@ Dancer2 core developer
 
 ```perl
 package OurApp
-use Dancer2; # Default appname is package name
+use Dancer2; # Default appname is the packages name
 
 get '/' => sub {'Hello'};
 ...
@@ -86,11 +86,14 @@ OurApp->psgi_app;
 * Each app can have its own configuration
   * but; config location guessing is still fugly
 * Dispatch over a subset of all registered apps
+
 ```perl
 # appnames
-Dancer2->psgi_app(MyApp, MyWiki);
+Dancer2->psgi_app('MyApp', 'MyWiki');
+
 # regex
 Dancer2->psgi_app(qr/^My/);
+
 # app coderefs
 Dancer2->psgi_app($app1, $app2, $app3);
 ```
